@@ -15,6 +15,36 @@ namespace HotelReservationSystemProblem
         {
             hotelList.Add(hotel);
         }
+        public Hotel FindCheapestHotel(DateTime[] dates)
+        {
+            int totalPrice = 0;
+            int weekendCount = 0;
+            int weekdayCount = 0;
+            int minimumRate = 99999;
+            Hotel cheapestHotel = null;
+            foreach (var date in dates)
+            {
+                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    weekendCount++;
+                }
+                else
+                {
+                    weekdayCount++;
+                }
+            }
+            foreach (var hotel in hotelList)
+            {
+                totalPrice = hotel.weekdayRates * weekdayCount + hotel.weekendRates * weekendCount;
+                if (totalPrice < minimumRate)
+                {
+                    minimumRate = totalPrice;
+                    cheapestHotel = hotel;
+                }
+            }
+            Console.WriteLine("Total Rate: " + minimumRate);
+            return cheapestHotel;
+        }
         public Hotel FindCheapestHotel(string[] dates)
         {
             DateTime[] validatedDates = getDates(dates);
