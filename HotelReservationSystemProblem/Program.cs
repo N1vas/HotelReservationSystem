@@ -5,7 +5,11 @@ namespace HotelReservationSystemProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Hotel Reservation Program");
+            Console.WriteLine("Welcome To Hotel Rservation System.");
+            HotelsBuilder hotel = new HotelsBuilder();
+            hotel.AddHotel(new Hotel("Lakewood", 110));
+            hotel.AddHotel(new Hotel("Ridgewood", 220));
+            hotel.AddHotel(new Hotel("Bridgewood", 150));
         }
     }
 }
