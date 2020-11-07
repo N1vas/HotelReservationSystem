@@ -7,9 +7,9 @@ namespace HotelReservationSystemProblem
         {
             Console.WriteLine("Welcome To Hotel Reservation System.");
             HotelsBuilder hotel = new HotelsBuilder();
-            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90));
-            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50));
-            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150));
+            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90,3));
+            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50,4));
+            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150,5));
             string[] dates = { "11Sep2020", "12Sep2020" };
             DateTime[] date = new DateTime[dates.Length];
             for (int index = 0; index < date.Length; index++)
