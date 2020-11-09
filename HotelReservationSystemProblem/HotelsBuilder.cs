@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HotelReservationSystemProblem
 {
@@ -21,7 +22,7 @@ namespace HotelReservationSystemProblem
             int weekendCount = 0;
             int weekdayCount = 0;
             int minimumRate = 99999;
-            Hotel cheapestHotel = null;
+            List<Hotel> cheapestHotel = new List<Hotel>();
             foreach (var date in dates)
             {
                 if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
@@ -36,14 +37,16 @@ namespace HotelReservationSystemProblem
             foreach (var hotel in hotelList)
             {
                 totalPrice = hotel.weekdayRates * weekdayCount + hotel.weekendRates * weekendCount;
-                if (totalPrice < minimumRate)
+                if (totalPrice <= minimumRate)
                 {
                     minimumRate = totalPrice;
-                    cheapestHotel = hotel;
+                    cheapestHotel.Add(hotel);
                 }
             }
             Console.WriteLine("Total Rate: " + minimumRate);
-            return cheapestHotel;
+            List<Hotel> sortedCheapestHotelsAsPerRating = cheapestHotel.OrderByDescending(x => x.hotelRating).ToList();
+            Console.WriteLine("Rating: " + sortedCheapestHotelsAsPerRating[0].hotelRating);
+            return sortedCheapestHotelsAsPerRating[0];
         }
         public Hotel FindCheapestHotel(string[] dates)
         {
