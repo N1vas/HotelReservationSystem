@@ -10,9 +10,9 @@ namespace HotelReservationSystemTest
         public void GivenDatesReturnCheapestHotel()
         {
             HotelsBuilder hotel = new HotelsBuilder();
-            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90,3));
-            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50,4));
-            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150,5));
+            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90,3,0,0));
+            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50,4, 0, 0));
+            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150,5, 0, 0));
             string[] dates = "11Sep2020,12Sep2020".Split(",");
             DateTime[] date = new DateTime[dates.Length];
             for (int index = 0; index < date.Length; index++)
@@ -26,9 +26,9 @@ namespace HotelReservationSystemTest
         public void GivenDatesReturnBestRatedHotel()
         {
             HotelsBuilder hotel = new HotelsBuilder();
-            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90, 3));
-            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50, 4));
-            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150, 5));
+            hotel.AddHotel(new Hotel("Lakewood", "Regular", 110, 90, 3, 0, 0));
+            hotel.AddHotel(new Hotel("Bridgewood", "Regular", 150, 50, 4, 0, 0));
+            hotel.AddHotel(new Hotel("Ridgewood", "Regular", 220, 150, 5, 0, 0));
             string[] dates = "11Sep2020,12Sep2020".Split(",");
             DateTime[] date = new DateTime[dates.Length];
             for (int index = 0; index < date.Length; index++)
