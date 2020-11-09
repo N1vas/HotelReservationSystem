@@ -36,7 +36,7 @@ namespace HotelReservationSystemProblem
             }
             foreach (var hotel in hotelList)
             {
-                totalPrice = hotel.weekdayRates * weekdayCount + hotel.weekendRates * weekendCount;
+                totalPrice = hotel.specialWeekdayRates * weekdayCount + hotel.specialWeekendRates * weekendCount;
                 if (totalPrice <= minimumRate)
                 {
                     minimumRate = totalPrice;
