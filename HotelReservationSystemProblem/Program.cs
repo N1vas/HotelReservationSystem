@@ -16,8 +16,8 @@ namespace HotelReservationSystemProblem
             {
                 date[index] = DateTime.Parse(dates[index]);
             }
-            Hotel cheapestHotel = hotel.FindCheapestHotel(date);
-            Console.WriteLine("Cheapest Hotel for given dates: " + cheapestHotel.hotelName);
+            Hotel ratedHotel = hotel.HighRatedHotel(date);
+            Console.WriteLine("Best Rated Hotel for given dates: " + ratedHotel.hotelName);
         }
     }
 }

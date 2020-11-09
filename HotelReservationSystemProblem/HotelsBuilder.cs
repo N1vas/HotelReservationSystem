@@ -67,5 +67,33 @@ namespace HotelReservationSystemProblem
         {
             return DateTime.Parse(enteredDate);
         }
+        public Hotel HighRatedHotel(DateTime[] dates)
+        {
+            Hotel bestRatedHotel = hotelList[0];
+            foreach (Hotel hotel in hotelList)
+            {
+                if (bestRatedHotel.hotelRating < hotel.hotelRating)
+                {
+                    bestRatedHotel = hotel;
+                }
+            }
+            int totalPrice = 0;
+            int weekendCount = 0;
+            int weekdayCount = 0;
+            foreach (var date in dates)
+            {
+                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    weekendCount++;
+                }
+                else
+                {
+                    weekdayCount++;
+                }
+            }
+            totalPrice = bestRatedHotel.weekdayRates * weekdayCount + bestRatedHotel.weekendRates * weekendCount;
+            Console.WriteLine("Total Rate: " + totalPrice);
+            return bestRatedHotel;
+        }
     }
 }
